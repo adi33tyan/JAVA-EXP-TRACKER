@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Expenses</title>
+</head>
+<body>
+    <h2>View Expenses</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        <%
+            com.expensetracker.dao.ExpenseDAO expenseDAO = new com.expensetracker.dao.ExpenseDAO();
+            java.util.List<com.expensetracker.model.Expense> expenses = expenseDAO.getAllExpenses();
+            for (com.expensetracker.model.Expense expense : expenses) {
+        %>
+        <tr>
+            <td><%= expense.getId() %></td>
+            <td><%= expense.getDescription() %></td>
+            <td><%= expense
